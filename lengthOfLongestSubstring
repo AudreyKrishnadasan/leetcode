@@ -15,7 +15,7 @@ public int lengthOfLongestSubstring(String s) {
                 repeats.add(Character.toString(s.charAt(i)));
                 curr += s.charAt(i);
             }
-	    }
+	 }
         
         int i = 0;
         while(noRepeats[i] != null){
