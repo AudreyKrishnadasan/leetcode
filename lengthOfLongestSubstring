@@ -1,0 +1,17 @@
+public int lengthOfLongestSubstring(String s) {
+        String gotIt = "";
+        int count = 0;
+        
+        for(int i = 0; i < s.length(); i++){
+            
+		    if(gotIt.contains(Character.toString(s.charAt(i)))){
+                return count;
+            }
+            else{
+                gotIt += s.charAt(i);
+                count++;
+            }
+	    }
+        
+        return 0;
+    }
