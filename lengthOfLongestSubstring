@@ -1,17 +1,29 @@
 public int lengthOfLongestSubstring(String s) {
-        String gotIt = "";
+        List <String> repeats = new ArrayList<> (s.length());
+        String curr = "";
         int count = 0;
+        String[] noRepeats = new String[s.length()];
+        String largest = "";
         
         for(int i = 0; i < s.length(); i++){
-            
-		    if(gotIt.contains(Character.toString(s.charAt(i)))){
-                return count;
+		    if(repeats.contains(Character.toString(s.charAt(i)))){
+                noRepeats[count] = curr;
+                curr = Character.toString(s.charAt(i));
+                count++;
             }
             else{
-                gotIt += s.charAt(i);
-                count++;
+                repeats.add(Character.toString(s.charAt(i)));
+                curr += s.charAt(i);
             }
 	    }
         
-        return 0;
+        int i = 0;
+        while(noRepeats[i] != null){
+           if(noRepeats[i].length() > largest.length()){
+                largest = noRepeats[i];
+            }
+            i++;
+        }
+        
+        return largest.length();
     }
