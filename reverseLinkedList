@@ -1,1 +1,19 @@
-
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null){
+            return head;
+        }
+        return reverseListHelp(head, null);
+    }
+    
+    public ListNode reverseListHelp(ListNode curr, ListNode list){
+        if(curr == null){
+            return list;
+        }
+        else{ //recursive case
+            list = new ListNode(curr.val, list);        //new node as the head of list, next gets whatever is in list currently 
+            return reverseListHelp(curr.next, list);    //recur and look at the next node after curr
+        }
+    }
+    
+}
