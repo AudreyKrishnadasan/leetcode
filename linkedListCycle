@@ -1,0 +1,13 @@
+public class Solution {
+    ArrayList<ListNode> checked = new ArrayList<ListNode>();
+    public boolean hasCycle(ListNode head) {
+        if(head == null){
+            return false;
+        }
+        checked.add(head);
+        if(checked.contains(head.next)){
+            return true;
+        }
+        return hasCycle(head.next);
+    }
+}
