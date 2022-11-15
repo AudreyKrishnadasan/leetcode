@@ -1,0 +1,23 @@
+class Solution {
+    public int maxArea(int[] height) {
+        int first = 0; //keeps track of the first "bar" we look at
+        int last = height.length-1; //keeps track of the last "bar" we are looking at
+        int temp = 0;
+        int maxArea = 0;
+        while (first < last){
+            if(height[first] <= height[last]){ // have to mult by the smaller height
+                temp = height[first] * (last - first); //height*width
+                first++;
+            }
+            else{
+                temp = height[last] * (last - first); //height*width
+                last--;
+            }
+            if(temp > maxArea){
+                maxArea = temp;
+            }
+        }
+        return maxArea;
+    }
+    
+}
