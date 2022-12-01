@@ -1,0 +1,73 @@
+class Solution {
+    public String intToRoman(int num) {
+        String romanNum = "";
+        while(num != 0){
+            if(num >= 1000){ // if the value is at least 1000
+                romanNum += "M";
+                num-=1000;
+                continue;
+            }
+            if(num >= 500){ // if the value is at least 500
+                if(num >= 900){
+                    romanNum += "CM";
+                    num -= 900;
+                    continue;
+                }
+                romanNum += "D";
+                num-=500;
+                continue;
+            }
+            if(num >= 100){ // if the value is at least 100
+                if(num >= 400){
+                    romanNum += "CD";
+                    num -= 400;
+                    continue;
+                }
+                romanNum += "C";
+                num-=100;
+                continue;
+            }
+            if(num >= 50){ // if the value is at least 50
+                if(num >= 90){
+                    romanNum += "XC";
+                    num -= 90;
+                    continue;
+                }
+                romanNum += "L";
+                num-=50;
+                continue;
+            }
+            if(num >= 10){ // if the value is at least 10
+                if(num >= 40){
+                    romanNum += "XL";
+                    num -= 40;
+                    continue;
+                }
+                romanNum += "X";
+                num-=10;
+                continue;
+            }
+            if(num >= 5){ // if the value is at least 5
+                if(num == 9){
+                    romanNum += "IX";
+                    num -= 9;
+                    continue;
+                }
+                romanNum += "V";
+                num-=5;
+                continue;
+            }
+            if(num >= 1){ // if the value is at least 1
+                if(num == 4){
+                    romanNum += "IV";
+                    num -= 4;
+                    continue;
+                }
+                romanNum += "I";
+                num--;
+                continue;
+            }
+        }
+        return romanNum;
+    }
+}
